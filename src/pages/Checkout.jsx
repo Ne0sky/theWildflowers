@@ -7,6 +7,7 @@ const Checkout = () => {
     const [customerInfo, setCustomerInfo] = useState({
         customer: '',
         address: '',
+        email: '',
         phone: '',
         items: [
             
@@ -35,6 +36,7 @@ const Checkout = () => {
             setCustomerInfo({
                 customer: '',
                 address: '',
+                email: '',
                 phone: '',
                 items: []
             });
@@ -65,6 +67,17 @@ const Checkout = () => {
                         id="address"
                         name="address"
                         value={customerInfo.address}
+                        onChange={handleChange}
+                        className="mt-1 p-3 block w-full  bg-neutral-100 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                    <input
+                        type="text"
+                        id="email"
+                        name="email"
+                        value={customerInfo.email}
                         onChange={handleChange}
                         className="mt-1 p-3 block w-full  bg-neutral-100 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     />
