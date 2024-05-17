@@ -28,7 +28,8 @@ const Checkout = () => {
         ]
         console.log('Submitted:', customerInfo);
         const res = await placeOrder(customerInfo);
-        if (res) {
+        console.log(res);
+        if (res.status) {
             localStorage.removeItem('cartItems');
             cart.items.forEach(item => removeFromCart(item.id));
             setCustomerInfo({
@@ -103,9 +104,15 @@ const Checkout = () => {
                 </div>
                 <button
                     type="submit"
-                    className="w-1/2 w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+                    className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
                 >
-                    Place Order
+                    {
+                        isPending && <span className='loader max-h-full'></span>
+                       
+                    }
+                    {
+                        !isPending && 'Place Order'
+                    }
                 </button>
             </form>
         </div>

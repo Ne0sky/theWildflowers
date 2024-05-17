@@ -32,7 +32,6 @@ const usePlaceOrder = () => {
     } catch (err) {
       setIsPending(false);
       setError(err.message);
-      toast.error(err.message);
       throw err; 
     }
   };
