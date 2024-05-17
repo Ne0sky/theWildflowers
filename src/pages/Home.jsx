@@ -4,11 +4,13 @@ import { useState } from 'react';
 import Banner from '../components/Banner';
 import PlantCard from '../components/PlantCard';
 import useGetPlants from '../hooks/useGetPlants';
+import About from '../components/About';
 const Home = () => {
     const { plants, error, isPending } = useGetPlants();
   return (
     <div className='px-4 md:px-8 lg:px-16 overflow-x-hidden'>
         <Banner/>
+        <About/>
         <h1 className='text-3xl font-bold text-green-800 font-secondary mt-8'>Best Selling Plants</h1>
         <ul className="flex w-full justify-center items-center flex-wrap py-8 gap-8">
         {isPending && <p>Loading...</p>}
