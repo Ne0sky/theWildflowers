@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useCartContext from '../hooks/useCartContext';
 import usePlaceOrder from '../hooks/usePlaceOrder';
 const Checkout = () => {
-    const { cart } = useCartContext();
+    const { cart, addToCart, removeFromCart } = useCartContext();
     const { placeOrder, isPending, error } = usePlaceOrder();
     const [customerInfo, setCustomerInfo] = useState({
         customer: '',
@@ -28,6 +28,16 @@ const Checkout = () => {
         ]
         console.log('Submitted:', customerInfo);
         const res = await placeOrder(customerInfo);
+        if (res) {
+            localStorage.removeItem('cartItems');
+            cart.items.forEach(item => removeFromCart(item.id));
+            setCustomerInfo({
+                customer: '',
+                address: '',
+                phone: '',
+                items: []
+            });
+        }
         console.log(res);
         
     };
