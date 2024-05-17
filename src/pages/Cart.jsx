@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import useCartContext from '../hooks/useCartContext';
 import { useNavigate } from 'react-router-dom';
+import { MdDeleteForever } from "react-icons/md";
+
 const Cart = () => {
     const navigate = useNavigate();
     const [quantity, setQuantity] = useState(1);
@@ -53,8 +55,8 @@ const handleCheckout = () => {
             <div className='grid grid-cols-1 gap-4 w-full md:w-[80%] lg:w-1/2 py-8'>
             <ul className="grid grid-cols-1 gap-4 w-full border rounded-xl p-4 bg-white">
                 {cart.items.map((item,index) => (
-                    <li key={item.id} className={` rounded p-4  flex items-center justify-between ${index !== cart.items.length - 1 ? 'border-b' : ''}`}>
-                        <div className="flex items-center space-x-4 w-1/2">
+                    <li key={item.id} className={` rounded p-2  flex items-center justify-between ${index !== cart.items.length - 1 ? 'border-b' : ''}`}>
+                        <div className="flex flex-col md:flex-row items-center space-x-4 w-1/3">
                             <img src={item.image} alt={item.name} className="w-12 h-12 object-cover" />
                             <div>
                                 <h3 className="text-lg font-semibold">{item.name}</h3>
@@ -68,9 +70,10 @@ const handleCheckout = () => {
                         </div>
                         <button
                             onClick={handleRemoveFromCart(item.id)}
-                            className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                            className=" rounded-full  text-2xl  text-red-600"
                         >
-                            Remove
+                            
+                            <MdDeleteForever className="inline-block " />
                         </button>
                     </li>
                 ))}

@@ -2,9 +2,9 @@ import React from 'react'
 
 const Banner = () => {
   return (
-    <div className='w-full h-[200px] md:h-[300px] lg:h-[400px] flex flex-col lg:flex-row rounded-xl my-8  bg-green-200 justify-around items-center'>
-        <div className='font-secondary'>
-            <h1 className='text-3xl md:text-4xl lg:text-5xl font-secondary font-bold text-center pt-4'>Buy your dream plants</h1>
+    <div className='w-full h-full md:h-[400px] flex flex-col lg:flex-row rounded-xl my-8  bg-green-200 justify-around items-center'>
+        <div className='font-secondary flex flex-col items-start justify-center p-8'>
+            <h1 className='text-3xl md:text-4xl lg:text-5xl font-secondary font-bold  '>Buy your dream plants</h1>
             <div className='flex items-center gap-8 pt-8'>
                 <div className='flex gap-2 items-center'>
                     <p className='text-2xl font-bold'>10+</p>
