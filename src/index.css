@@ -4,15 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.container{
-    background-image: url('/public/bg.jpg');
-    object-fit: cover;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
- 
-    
-}
+
 
 body{
     scroll-behavior: smooth;
